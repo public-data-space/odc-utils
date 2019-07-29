@@ -37,14 +37,4 @@ public class ResourceRequest {
         this.fileType = fileType;
     }
 
-    public static void main(String[] args) {
-        ResourceRequest req = new ResourceRequest();
-        DataSource ds = new DataSource();
-        DataAsset da = new DataAsset();
-        FileType ft = FileType.JSON;
-        req.setDataAsset(da);
-        req.setDataSource(ds);
-        req.setFileType(ft);
-        System.out.println(Json.encode(req));
-    }
 }

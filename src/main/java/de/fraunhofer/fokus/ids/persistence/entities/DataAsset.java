@@ -36,9 +36,6 @@ public class DataAsset extends BaseEntity {
     @JsonProperty("orignaldataseturl")
     private String orignalDatasetURL;
 
-    @JsonProperty("accessinformation")
-    private String accessInformation;
-
     private String signature;
 
     private DataAssetStatus status;
@@ -177,14 +174,6 @@ public class DataAsset extends BaseEntity {
 
     public void setOrignalDatasetURL(String orignalDatasetURL) {
         this.orignalDatasetURL = orignalDatasetURL;
-    }
-
-    public String getAccessInformation() {
-        return accessInformation;
-    }
-
-    public void setAccessInformation(String accessInformation) {
-        this.accessInformation = accessInformation;
     }
 
     public String getSignature() {

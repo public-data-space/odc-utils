@@ -6,5 +6,9 @@ public enum FileType {
     XML,
     TXT,
     CSV,
-    XSLX
+    XSLX,
+    TTL,
+    JSONLD,
+    RDF,
+    MULTIPART
 }

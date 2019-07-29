@@ -2,22 +2,23 @@ package de.fraunhofer.fokus.ids.persistence.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import de.fraunhofer.fokus.ids.persistence.entities.serialization.JsonObjectDeserialize;
+import de.fraunhofer.fokus.ids.persistence.entities.serialization.JsonObjectSerializer;
 import de.fraunhofer.fokus.ids.persistence.enums.DatasourceType;
 import de.fraunhofer.fokus.ids.persistence.enums.JobStatus;
 import io.vertx.core.json.JsonObject;
 
 public class Job extends BaseEntity {
 
-
     @JsonProperty("data")
+    @JsonSerialize(using = JsonObjectSerializer.class)
+    @JsonDeserialize(using = JsonObjectDeserialize.class)
     private Object data;
-
     @JsonProperty("sourceid")
-    private String sourceID;
-
+    private String sourceId;
     @JsonProperty("status")
     private JobStatus status;
-
     @JsonProperty("sourcetype")
     private DatasourceType sourceType;
 
@@ -30,11 +31,11 @@ public class Job extends BaseEntity {
     }
 
     public String getSourceID() {
-        return sourceID;
+        return sourceId;
     }
 
     public void setSourceID(String sourceID) {
-        this.sourceID = sourceID;
+        this.sourceId = sourceID;
     }
 
     public JsonObject getData() {
