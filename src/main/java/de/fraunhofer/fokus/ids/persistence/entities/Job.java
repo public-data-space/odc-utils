@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import de.fraunhofer.fokus.ids.persistence.entities.serialization.JsonObjectDeserialize;
 import de.fraunhofer.fokus.ids.persistence.entities.serialization.JsonObjectSerializer;
-import de.fraunhofer.fokus.ids.persistence.enums.DatasourceType;
 import de.fraunhofer.fokus.ids.persistence.enums.JobStatus;
 import io.vertx.core.json.JsonObject;
 
@@ -20,7 +19,7 @@ public class Job extends BaseEntity {
     @JsonProperty("status")
     private JobStatus status;
     @JsonProperty("sourcetype")
-    private DatasourceType sourceType;
+    private String sourceType;
 
     public JobStatus getStatus() {
         return status;
@@ -46,11 +45,11 @@ public class Job extends BaseEntity {
         this.data = data;
     }
 
-    public DatasourceType getSourceType() {
+    public String getSourceType() {
         return sourceType;
     }
 
-    public void setSourceType(DatasourceType sourceType) {
+    public void setSourceType(String sourceType) {
         this.sourceType = sourceType;
     }
 

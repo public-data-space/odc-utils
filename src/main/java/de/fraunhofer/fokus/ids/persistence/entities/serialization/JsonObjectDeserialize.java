@@ -9,7 +9,7 @@ import io.vertx.core.json.JsonObject;
 import java.io.IOException;
 
 public class JsonObjectDeserialize extends JsonDeserializer {
-    public Object deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public JsonObject deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
 
         String p = jsonParser.getValueAsString();
 
