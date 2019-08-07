@@ -13,7 +13,7 @@ public class Job extends BaseEntity {
     @JsonProperty("data")
     @JsonSerialize(using = JsonObjectSerializer.class)
     @JsonDeserialize(using = JsonObjectDeserialize.class)
-    private Object data;
+    private JsonObject data;
     @JsonProperty("sourceid")
     private String sourceId;
     @JsonProperty("status")
@@ -41,7 +41,7 @@ public class Job extends BaseEntity {
         return JsonObject.mapFrom(data);
     }
 
-    public void setData(Object data) {
+    public void setData(JsonObject data) {
         this.data = data;
     }
 

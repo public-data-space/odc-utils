@@ -11,7 +11,7 @@ public class DataAsset extends BaseEntity {
     private String datasetID;
 
     @JsonProperty("sourceid")
-    private String sourceID;
+    private Long sourceID;
 
     private String name;
 
@@ -56,11 +56,11 @@ public class DataAsset extends BaseEntity {
 
 	private String version;
 
-    public String getSourceID() {
+    public Long getSourceID() {
         return sourceID;
     }
 
-    public void setSourceID(String sourceID) {
+    public void setSourceID(Long sourceID) {
         this.sourceID = sourceID;
     }
 
