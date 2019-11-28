@@ -1,11 +1,19 @@
 package de.fraunhofer.fokus.ids.messages;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import de.fraunhofer.fokus.ids.persistence.entities.DataSource;
-import de.fraunhofer.fokus.ids.persistence.entities.Job;
+import de.fraunhofer.fokus.ids.persistence.entities.serialization.JsonObjectDeserialize;
+import de.fraunhofer.fokus.ids.persistence.entities.serialization.JsonObjectSerializer;
+import io.vertx.core.json.JsonObject;
 
 public class DataAssetCreateMessage {
 
-    private Job job;
+    @JsonProperty("data")
+    @JsonSerialize(using = JsonObjectSerializer.class)
+    @JsonDeserialize(using = JsonObjectDeserialize.class)
+    private JsonObject data;
     private DataSource dataSource;
     private Long dataAssetId;
 
@@ -17,12 +25,12 @@ public class DataAssetCreateMessage {
         this.dataAssetId = dataAssetId;
     }
 
-    public Job getJob() {
-        return job;
+    public JsonObject getData() {
+        return data;
     }
 
-    public void setJob(Job job) {
-        this.job = job;
+    public void setData(JsonObject data) {
+        this.data = data;
     }
 
     public DataSource getDataSource() {
