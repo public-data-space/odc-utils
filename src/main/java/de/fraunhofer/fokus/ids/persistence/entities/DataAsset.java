@@ -13,6 +13,8 @@ public class DataAsset extends BaseEntity {
     @JsonProperty("sourceid")
     private Long sourceID;
 
+    private String filename;
+
     private String name;
 
     private String url;
@@ -207,4 +209,13 @@ public class DataAsset extends BaseEntity {
 	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
 }
