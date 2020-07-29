@@ -2,22 +2,22 @@ package de.fraunhofer.fokus.ids.persistence.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
+import java.time.Instant;
 
 public abstract class BaseEntity {
 
     private Long id;
     @JsonProperty("created_at")
-    private Date createdAt;
+    private Instant createdAt;
     @JsonProperty("updated_at")
-    private Date updatedAt;
+    private Instant updatedAt;
 
     public void createdAt() {
-        this.createdAt = this.updatedAt = new Date();
+        this.createdAt = this.updatedAt = Instant.now();
     }
 
     public void updatedAt() {
-        this.updatedAt = new Date();
+        this.updatedAt = Instant.now();
     }
 
     @Override
@@ -35,19 +35,19 @@ public abstract class BaseEntity {
         this.id = id;
     }
 
-    public Date getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
 

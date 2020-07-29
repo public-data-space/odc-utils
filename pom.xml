@@ -6,13 +6,18 @@
 
     <groupId>de.fraunhofer.fokus.ids</groupId>
     <artifactId>odc-utils</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
-            <version>3.6.2</version>
+            <version>3.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>de.fraunhofer.iais.eis.ids.infomodel</groupId>
+            <artifactId>java</artifactId>
+            <version>3.1.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
@@ -47,6 +52,18 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>iais-snapshot</id>
+            <name>Fraunhofer IAIS Snapshots</name>
+            <url>https://maven.iais.fraunhofer.de/artifactory/eis-ids-public</url>
+        </repository>
+        <repository>
+            <id>eis-snapshot-repo</id>
+            <name>maven-snapshots</name>
+            <url>http://maven.iais.fraunhofer.de/artifactory/eis-ids-snapshot</url>
+        </repository>
+    </repositories>
     <distributionManagement>
         <repository>
             <id>paca</id>
