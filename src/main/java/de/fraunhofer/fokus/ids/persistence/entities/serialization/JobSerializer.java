@@ -6,7 +6,6 @@ import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 
 import java.text.ParseException;
-import java.time.Instant;
 
 public class JobSerializer {
 
@@ -17,15 +16,19 @@ public class JobSerializer {
     public Job deserialize(JsonObject jobJson) throws ParseException {
 
         Job job = new Job();
-        job.setData(jobJson.getJsonObject("data"));
+        JsonObject data;
+        try {
+            data = jobJson.getJsonObject("data");
+        } catch (ClassCastException e){
+            data = new JsonObject(jobJson.getString("data"));
+        }
+        job.setData(data);
         job.setSourceID(jobJson.getString("sourceid"));
         job.setStatus(JobStatus.valueOf(jobJson.getString("status")));
         job.setSourceType(jobJson.getString("sourcetype"));
         job.setId(jobJson.getLong("id"));
-        String created = jobJson.getString("created_at");
-        String updated = jobJson.getString("updated_at");
-        job.setCreatedAt(Instant.parse(created));
-        job.setCreatedAt(Instant.parse(updated));
+        job.setCreatedAt(jobJson.getInstant("created_at"));
+        job.setCreatedAt(jobJson.getInstant("updated_at"));
         return job;
     }
 }

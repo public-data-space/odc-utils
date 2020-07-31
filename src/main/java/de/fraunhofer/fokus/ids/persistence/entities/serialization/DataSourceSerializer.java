@@ -5,7 +5,6 @@ import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 
 import java.text.ParseException;
-import java.time.Instant;
 
 public class DataSourceSerializer {
 
@@ -16,14 +15,18 @@ public class DataSourceSerializer {
     public static DataSource deserialize(JsonObject datasourceJson) throws ParseException {
 
         DataSource dataSource = new DataSource();
-        dataSource.setData(datasourceJson.getJsonObject("data"));
+        JsonObject data;
+        try {
+            data = datasourceJson.getJsonObject("data");
+        } catch (ClassCastException e){
+            data = new JsonObject(datasourceJson.getString("data"));
+        }
+        dataSource.setData(data);
         dataSource.setDatasourceType(datasourceJson.getString("datasourcetype"));
         dataSource.setDatasourceName(datasourceJson.getString("datasourcename"));
         dataSource.setId(datasourceJson.getLong("id"));
-        String created = datasourceJson.getString("created_at");
-        String updated = datasourceJson.getString("updated_at");
-        dataSource.setCreatedAt(Instant.parse(created));
-        dataSource.setCreatedAt(Instant.parse(updated));
+        dataSource.setCreatedAt(datasourceJson.getInstant("created_at"));
+        dataSource.setCreatedAt(datasourceJson.getInstant("updated_at"));
         return dataSource;
     }
 }
