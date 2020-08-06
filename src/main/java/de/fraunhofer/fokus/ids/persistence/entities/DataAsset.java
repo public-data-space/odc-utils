@@ -19,6 +19,8 @@ public class DataAsset extends BaseEntity {
 
     private String url;
 
+    private String mimetype;
+
     private String format;
     @JsonProperty("licenseurl")
     private String licenseUrl;
