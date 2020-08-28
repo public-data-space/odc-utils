@@ -1,25 +1,18 @@
 package de.fraunhofer.fokus.ids.persistence.entities;
 
-import de.fraunhofer.fokus.ids.enums.FileType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import de.fraunhofer.fokus.ids.persistence.enums.DataAssetStatus;
 
 import java.util.Set;
 
 public class Dataset extends Resource {
 
-    private Long sourceid;
     private Set<Distribution> distributions;
     private DataAssetStatus status;
     private Set<String> tags;
     private String version;
-
-    public Long getSourceid() {
-        return sourceid;
-    }
-
-    public void setSourceid(Long sourceid) {
-        this.sourceid = sourceid;
-    }
+    @JsonProperty("sourceid")
+    private Long sourceId;
 
     public Set<Distribution> getDistributions() {
         return distributions;
@@ -51,6 +44,14 @@ public class Dataset extends Resource {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public Long getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(Long sourceId) {
+        this.sourceId = sourceId;
     }
 
 }

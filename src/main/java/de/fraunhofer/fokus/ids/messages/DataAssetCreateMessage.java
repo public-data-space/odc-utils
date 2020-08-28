@@ -15,15 +15,6 @@ public class DataAssetCreateMessage {
     @JsonDeserialize(using = JsonObjectDeserialize.class)
     private JsonObject data;
     private DataSource dataSource;
-    private Long dataAssetId;
-
-    public Long getDataAssetId() {
-        return dataAssetId;
-    }
-
-    public void setDataAssetId(Long dataAssetId) {
-        this.dataAssetId = dataAssetId;
-    }
 
     public JsonObject getData() {
         return data;

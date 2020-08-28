@@ -1,11 +1,15 @@
 package de.fraunhofer.fokus.ids.persistence.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Resource extends BaseEntity {
 
     private String title;
     private String description;
     private String publisher;
     private String license;
+    @JsonProperty("resourceid")
+    private String resourceId;
 
     public String getTitle() {
         return title;
@@ -37,6 +41,14 @@ public class Resource extends BaseEntity {
 
     public void setLicense(String license) {
         this.license = license;
+    }
+
+    public String getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(String resourceId) {
+        this.resourceId = resourceId;
     }
 
 }

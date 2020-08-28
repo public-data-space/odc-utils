@@ -1,16 +1,13 @@
 package de.fraunhofer.fokus.ids.messages;
 
 import de.fraunhofer.fokus.ids.enums.FileType;
-import de.fraunhofer.fokus.ids.persistence.entities.DataAsset;
 import de.fraunhofer.fokus.ids.persistence.entities.DataSource;
-import io.vertx.core.json.Json;
-
-import java.io.File;
+import de.fraunhofer.fokus.ids.persistence.entities.Distribution;
 
 public class ResourceRequest {
 
     DataSource dataSource;
-    DataAsset dataAsset;
+    Distribution distribution;
     FileType fileType;
 
     public DataSource getDataSource() {
@@ -21,12 +18,12 @@ public class ResourceRequest {
         this.dataSource = dataSource;
     }
 
-    public DataAsset getDataAsset() {
-        return dataAsset;
+    public Distribution getDataAsset() {
+        return distribution;
     }
 
-    public void setDataAsset(DataAsset dataAsset) {
-        this.dataAsset = dataAsset;
+    public void setDataAsset(Distribution dataAsset) {
+        this.distribution = dataAsset;
     }
 
     public FileType getFileType() {

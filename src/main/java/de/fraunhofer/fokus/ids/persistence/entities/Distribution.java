@@ -1,18 +1,27 @@
 package de.fraunhofer.fokus.ids.persistence.entities;
 
-import de.fraunhofer.fokus.ids.enums.FileType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Distribution extends Resource {
 
     private String filename;
-    private FileType filetype;
+    private String filetype;
+    @JsonProperty("datasetid")
+    private String datasetId;
 
+    public String getDatasetId() {
+        return datasetId;
+    }
 
-    public FileType getFiletype() {
+    public void setDatasetId(String datasetId) {
+        this.datasetId = datasetId;
+    }
+
+    public String getFiletype() {
         return filetype;
     }
 
-    public void setFiletype(FileType filetype) {
+    public void setFiletype(String filetype) {
         this.filetype = filetype;
     }
 
